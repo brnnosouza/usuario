@@ -23,7 +23,7 @@ public class Usuario implements UserDetails {
 
     @Column(name = "nome", length = 100)
     private String nome;
-    @Column(name = "email", length = 100)
+    @Column(name = "emai l", length = 100)
     private String email;
     @Column(name = "senha")
     private String senha;

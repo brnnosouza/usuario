@@ -1,6 +1,7 @@
 package com.brennodev.usuario.infrastructure.repository;
 
-import com.brennodev.cadastro_usuarios_api.infrastructure.entity.Endereco;
+
+import com.brennodev.usuario.infrastructure.entity.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
