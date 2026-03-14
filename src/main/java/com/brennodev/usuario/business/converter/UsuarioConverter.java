@@ -29,7 +29,6 @@ public class UsuarioConverter {
     }
     public Endereco paraEndereco(EnderecoDTO enderecoDTO){
         return Endereco.builder()
-                .id(enderecoDTO.getId())
                 .rua(enderecoDTO.getRua())
                 .numero(enderecoDTO.getNumero())
                 .cidade(enderecoDTO.getCidade())
@@ -44,7 +43,6 @@ public class UsuarioConverter {
     }
     public Telefone paraTelefone(TelefoneDTO telefoneDTO){
         return Telefone.builder()
-                .id(telefoneDTO.getId())
                 .numero(telefoneDTO.getNumero())
                 .ddd(telefoneDTO.getDdd())
                 .build();
@@ -67,6 +65,7 @@ public class UsuarioConverter {
     }
     public EnderecoDTO paraEnderecoDTO(Endereco endereco){
         return EnderecoDTO.builder()
+                .id(endereco.getId())
                 .rua(endereco.getRua())
                 .numero(endereco.getNumero())
                 .cidade(endereco.getCidade())
@@ -81,6 +80,7 @@ public class UsuarioConverter {
     }
     public TelefoneDTO paraTelefoneDTO(Telefone telefone){
         return TelefoneDTO.builder()
+                .id(telefone.getId())
                 .numero(telefone.getNumero())
                 .ddd(telefone.getDdd())
                 .build();
@@ -112,6 +112,24 @@ public class UsuarioConverter {
                 .id(entity.getId())
                 .numero(dto.getNumero() != null ? dto.getNumero() : entity.getNumero())
                 .ddd(dto.getDdd() != null ? dto.getDdd() : entity.getDdd())
+                .build();
+    }
+    public Endereco paraEnderecoEntity(EnderecoDTO dto, Long idUsuario){
+        return Endereco.builder()
+                .rua(dto.getRua())
+                .numero(dto.getNumero())
+                .cidade(dto.getCidade())
+                .estado(dto.getEstado())
+                .complemento(dto.getComplemento())
+                .cep(dto.getCep())
+                .usuario_id(idUsuario)
+                .build();
+    }
+    public Telefone paraTelefoneEntity(TelefoneDTO dto, Long idUsuario){
+        return Telefone.builder()
+                .numero(dto.getNumero())
+                .ddd(dto.getDdd())
+                .usuario_id(idUsuario)
                 .build();
     }
 
